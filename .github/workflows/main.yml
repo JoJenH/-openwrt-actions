@@ -4,15 +4,17 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
-      - name: Get current date
+      - name: Get current date # 获取编译日期
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-      - name: create test file
+
+      - name: create test file # 创建输出测试文件
         run: echo "test" >test.txt
-      - name: Upload to release
+
+      - name: Upload to release # 上传至release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: test.txt
-          tag: nightly-tag-${{ steps.date.outputs.date }}
+          artifacts: test.txt # 需要上传的文件，可以是多个
+          tag: openwrt-${{ steps.date.outputs.date }}
           token: ${{ secrets.TOKEN }}
         
