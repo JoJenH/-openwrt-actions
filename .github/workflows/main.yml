@@ -13,15 +13,15 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
 
-      - name: create test file # 创建输出测试文件
-        run: |
-         [ -e $FILE_PATH ]
-         cat $FILE_PATH
+      # - name: create test file # 创建输出测试文件
+      #   run: |
+      #     [ -e $FILE_PATH ]
+      #     cat $FILE_PATH
 
-#       - name: Upload to release # 上传至release
-#         uses: ncipollo/release-action@v1
-#         with:
-#           artifacts: test.txt # 需要上传的文件，可以是多个
-#           tag: openwrt-${{ steps.date.outputs.date }}
-#           token: ${{ secrets.TOKEN }}
+      # - name: Upload to release # 上传至release
+      #   uses: ncipollo/release-action@v1
+      #   with:
+      #     artifacts: test.txt # 需要上传的文件，可以是多个
+      #     tag: openwrt-${{ steps.date.outputs.date }}
+      #     token: ${{ secrets.TOKEN }}
         
