@@ -7,9 +7,8 @@ jobs:
       - name: create test file
         run: echo "test" >test.txt
       - name: Upload to release
-        uses: JoJenH/upload-to-release@master
+        uses: ncipollo/release-action@v1
         with:
-          args: test.txt
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          artifacts: test.txt
+          token: ${{ secrets.TOKEN }}
         
