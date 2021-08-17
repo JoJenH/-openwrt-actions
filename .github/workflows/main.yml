@@ -4,11 +4,15 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')
       - name: create test file
         run: echo "test" >test.txt
       - name: Upload to release
         uses: ncipollo/release-action@v1
         with:
           artifacts: test.txt
+          tag: nightly-tag-${{ steps.date.outputs.date }}
           token: ${{ secrets.TOKEN }}
         
