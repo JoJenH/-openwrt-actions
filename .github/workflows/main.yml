@@ -1,0 +1,16 @@
+name: test
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: create test file
+        run: echo "test" > test.txt
+        
+      - name: upload to release
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: test.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        
