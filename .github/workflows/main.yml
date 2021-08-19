@@ -15,7 +15,7 @@ jobs:
 
       - name: create test file # 创建输出测试文件
         run: |
-          [ -e $FILE_PATH ]
+          [ -e config ]
           cat $FILE_PATH
 
       # - name: Upload to release # 上传至release
