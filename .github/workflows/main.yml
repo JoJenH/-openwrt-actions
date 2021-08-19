@@ -16,7 +16,11 @@ jobs:
       - name: create test file # 创建输出测试文件
         run: |
           [ -e config ]
-          cat $FILE_PATH
+          cd config
+          pwd
+          
+      - name: pwd
+        run: pwd
 
       # - name: Upload to release # 上传至release
       #   uses: ncipollo/release-action@v1
