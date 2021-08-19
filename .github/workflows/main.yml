@@ -1,7 +1,7 @@
 name: test
 on: workflow_dispatch
 env:
-  FILE_PATH: README.md
+  FILE_PATH: config/.config
 jobs:
   test:
     runs-on: ubuntu-20.04
@@ -13,10 +13,10 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
 
-      # - name: create test file # 创建输出测试文件
-      #   run: |
-      #     [ -e $FILE_PATH ]
-      #     cat $FILE_PATH
+      - name: create test file # 创建输出测试文件
+        run: |
+          [ -e $FILE_PATH ]
+          cat $FILE_PATH
 
       # - name: Upload to release # 上传至release
       #   uses: ncipollo/release-action@v1
